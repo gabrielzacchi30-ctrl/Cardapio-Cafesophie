@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Sophie · Cardápio</title>
+<meta name="description" content="Cardápio, preços, horário e reservas do Café Sophie em Seara/SC. Cappuccinos especiais, cafés gelados, donuts, salgados e doces.">
+<meta name="theme-color" content="#5E3B2E">
+<!-- Prévia do link (WhatsApp, Instagram, Facebook).
+     Ao publicar, troque og:url e og:image pelo endereço completo (ex.: https://seudominio.com.br/logo.jpg) -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Café Sophie">
+<meta property="og:title" content="Café Sophie · Cardápio">
+<meta property="og:description" content="Veja o cardápio, os preços e o horário de hoje. Reserve sua mesa pelo WhatsApp.">
+<!-- <meta property="og:url" content="https://ENDERECO-FINAL"> -->
+<meta property="og:image" content="logo.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF3EA;
+    --cream-2:#F4E4D3;
+    --paper:#FFFFFF;
+    --brown:#5E3B2E;
+    --brown-2:#7A4E3C;
+    --caramel:#C98B57;
+    --caramel-soft:#EBCDB0;
+    --pink:#D9779F;
+    --pink-soft:#F7DCE7;
+    --text:#3D2820;
+    --muted:#8C6E61;
+    --line:#EADBCB;
+    --green:#3E9B5F;
+    --red:#C0533F;
+    --radius:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  [hidden]{display:none !important}
+  .section,.info-card{scroll-margin-top:124px}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Nunito",system-ui,sans-serif;
+    background:var(--cream-2);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+  }
+  .app{
+    max-width:480px;margin:0 auto;min-height:100vh;
+    background:var(--cream);
+    box-shadow:0 0 40px rgba(94,59,46,.12);
+    position:relative;padding-bottom:32px;
+  }
+
+  /* ---------- Cabeçalho ---------- */
+  .hero{
+    position:relative;text-align:center;
+    padding:0 20px 22px;
+    background:linear-gradient(180deg,var(--cream-2) 0%,var(--cream) 100%);
+  }
+  .awning{
+    height:26px;margin:0 -20px 18px;
+    background:repeating-linear-gradient(90deg,var(--caramel-soft) 0 34px,var(--cream) 34px 68px);
+    -webkit-mask:radial-gradient(circle at 17px 9px,#000 17px,transparent 17.5px) 0 0/34px 100% repeat-x,linear-gradient(#000,#000) 0 0/100% 9px no-repeat;
+    mask:radial-gradient(circle at 17px 9px,#000 17px,transparent 17.5px) 0 0/34px 100% repeat-x,linear-gradient(#000,#000) 0 0/100% 9px no-repeat;
+  }
+  .logo{
+    width:118px;height:118px;border-radius:50%;
+    background:#fff;border:4px solid var(--paper);
+    box-shadow:0 6px 20px rgba(94,59,46,.18);
+    object-fit:cover;display:block;margin:0 auto 12px;
+  }
+  .hero h1{
+    font-family:"Fraunces",serif;font-weight:700;
+    font-size:30px;color:var(--brown);letter-spacing:-.3px;
+  }
+  .tagline{color:var(--muted);font-size:14px;margin-top:2px}
+  .status{
+    display:inline-flex;align-items:center;gap:8px;
+    margin-top:14px;padding:8px 14px;border-radius:999px;
+    background:var(--paper);border:1px solid var(--line);
+    font-size:13px;font-weight:700;
+  }
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--muted)}
+  .status.open .dot{background:var(--green);box-shadow:0 0 0 4px rgba(62,155,95,.18)}
+  .status.closed .dot{background:var(--red)}
+  .status.soon .dot{background:#E0A030;box-shadow:0 0 0 4px rgba(224,160,48,.22)}
+
+  /* ---------- Comodidades ---------- */
+  #comodidades{padding-top:18px}
+  #comodidades h3{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+  .amenities{display:flex;flex-wrap:wrap;gap:6px}
+  .amenity{
+    display:inline-flex;align-items:center;gap:6px;
+    background:var(--paper);border:1px solid var(--line);border-radius:999px;
+    padding:6px 11px;font-size:12.5px;font-weight:700;color:var(--brown);
+  }
+  .amenity svg{width:16px;height:16px;flex:none;color:var(--caramel);
+    fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .specials{margin-top:12px;font-size:13px;line-height:1.7;color:var(--caramel-soft)}
+  .specials:empty{display:none}
+  .specials b{color:#fff}
+  .reserve{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    margin-top:16px;padding:13px;border-radius:12px;
+    background:var(--cream);color:var(--brown);text-decoration:none;font-weight:800;font-size:15px;
+    width:100%;border:0;font-family:inherit;cursor:pointer;
+  }
+  .reserve svg{width:18px;height:18px}
+
+  /* ---------- Formulário de reserva ---------- */
+  button.order{width:100%;border:0;font-family:inherit;cursor:pointer}
+  button.order:disabled{opacity:.5;cursor:not-allowed}
+  .opts{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .opts::-webkit-scrollbar{display:none}
+  .opt{
+    flex:none;min-width:70px;padding:9px 10px;border-radius:14px;cursor:pointer;
+    background:var(--paper);border:1.5px solid var(--line);
+    font-family:inherit;color:var(--brown);text-align:center;
+  }
+  .opt b{display:block;font-size:14px;font-weight:800}
+  .opt small{display:block;font-size:11px;font-weight:600;color:var(--muted);margin-top:1px}
+  .opt.active{background:var(--brown);border-color:var(--brown);color:#fff}
+  .opt.active small{color:var(--caramel-soft)}
+  .ico{width:16px;height:16px;flex:none;vertical-align:-3px;
+    fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .other-date{
+    display:inline-flex;align-items:center;gap:6px;
+    margin-top:10px;padding:8px 2px;border:0;background:none;cursor:pointer;
+    font:inherit;font-size:14px;font-weight:800;color:var(--caramel);
+    text-decoration:underline;text-underline-offset:3px;
+  }
+  .other-date.active{color:var(--brown)}
+  .field-input{
+    display:block;width:100%;margin-top:8px;padding:12px 14px;border-radius:14px;
+    background:var(--paper);border:1.5px solid var(--line);
+    font:inherit;font-size:15px;color:var(--text);
+  }
+  .field-input:focus{outline:none;border-color:var(--caramel)}
+  select.field-input{
+    margin-top:0;appearance:none;-webkit-appearance:none;cursor:pointer;
+    background:var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237A4E3C' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center/16px;
+  }
+  textarea.field-input{margin-top:0;resize:none}
+  .stepper{
+    display:inline-flex;align-items:center;gap:4px;
+    background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:4px;
+  }
+  .stepper button{
+    width:40px;height:40px;border-radius:10px;border:0;cursor:pointer;
+    background:var(--cream-2);color:var(--brown);font-size:22px;font-weight:800;line-height:1;
+  }
+  .stepper button:disabled{opacity:.35;cursor:not-allowed}
+  .stepper output{min-width:64px;text-align:center;font-weight:800;font-size:16px;color:var(--brown)}
+  .hint{margin-top:8px;font-size:13px;color:var(--muted);line-height:1.45}
+  .hint.warn{color:var(--red);font-weight:700}
+  .hint.center{text-align:center}
+  .sheet h4 small{text-transform:none;font-weight:600;color:var(--muted);letter-spacing:0}
+  .status small{font-weight:600;color:var(--muted)}
+
+  .quick{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px auto 0;max-width:340px}
+  .chip-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:inherit;cursor:pointer;
+    padding:8px 12px;border-radius:12px;
+    background:var(--paper);border:1px solid var(--line);
+    color:var(--brown);font-weight:700;font-size:13px;text-decoration:none;
+  }
+  .chip-btn svg{width:16px;height:16px}
+  .chip-btn.wa svg{color:#25A244}
+
+  /* ---------- Busca + categorias ---------- */
+  .sticky{
+    position:sticky;top:0;z-index:10;
+    background:rgba(251,243,234,.94);backdrop-filter:blur(8px);
+    padding:12px 16px 10px;border-bottom:1px solid var(--line);
+  }
+  .search{
+    display:flex;align-items:center;gap:8px;
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:14px;padding:10px 12px;
+  }
+  .search svg{width:18px;height:18px;color:var(--muted);flex:none}
+  .search input{border:0;outline:0;background:transparent;font:inherit;font-size:15px;width:100%;color:var(--text)}
+  .tabs{display:flex;gap:8px;overflow-x:auto;margin-top:10px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{
+    flex:none;padding:8px 14px;border-radius:999px;
+    border:1px solid var(--line);background:var(--paper);
+    color:var(--brown-2);font-weight:700;font-size:13px;cursor:pointer;
+    font-family:inherit;transition:.15s;
+  }
+  .tab.active{background:var(--brown);border-color:var(--brown);color:#fff}
+
+  /* ---------- Destaques ---------- */
+  .section{padding:22px 16px 4px}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px}
+  .section h2{
+    font-family:"Fraunces",serif;font-weight:700;font-size:22px;color:var(--brown);
+    display:flex;align-items:center;gap:8px;
+  }
+  .section h2::after{
+    content:"";width:22px;height:3px;border-radius:3px;background:var(--pink);
+    transform:rotate(-12deg);margin-left:4px;
+  }
+  .count{font-size:12px;color:var(--muted);font-weight:700}
+
+  .highlights{display:flex;gap:12px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .highlights::-webkit-scrollbar{display:none}
+  .hcard{
+    flex:none;width:172px;scroll-snap-align:start;
+    background:var(--paper);border-radius:var(--radius);
+    border:2px solid var(--pink-soft);overflow:hidden;
+  }
+  .hcard .ph{height:150px;border-radius:0}
+  .hcard .body{padding:10px 12px 12px}
+  .hcard h3{font-size:15px;font-weight:800;color:var(--brown);line-height:1.2}
+  .hcard .price{margin-top:6px}
+
+  /* ---------- Placeholder de foto ---------- */
+  .ph{
+    background:
+      repeating-linear-gradient(45deg,transparent 0 10px,rgba(201,139,87,.08) 10px 20px),
+      var(--cream-2);
+    border:2px dashed var(--caramel-soft);
+    border-radius:14px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
+    color:var(--caramel);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;
+  }
+  .ph svg{width:22px;height:22px;opacity:.8}
+
+  /* ---------- Itens ---------- */
+  .list{display:flex;flex-direction:column;gap:10px}
+  .item{
+    display:flex;gap:12px;align-items:stretch;
+    background:var(--paper);border:1px solid var(--line);
+    border-radius:var(--radius);padding:12px;
+  }
+  .item .info{flex:1;min-width:0;display:flex;flex-direction:column}
+  .item h3{font-size:16px;font-weight:800;color:var(--brown);line-height:1.25}
+  .badge{
+    display:inline-block;vertical-align:middle;margin-left:6px;
+    padding:2px 7px;border-radius:999px;font-size:10px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;
+    background:var(--pink-soft);color:var(--pink);
+  }
+  .desc{
+    font-size:13px;color:var(--muted);margin-top:4px;line-height:1.4;
+    font-style:italic;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .item,.hcard{cursor:pointer;transition:transform .12s, box-shadow .12s;-webkit-tap-highlight-color:transparent}
+  .item:active,.hcard:active{transform:scale(.98)}
+  .item:hover,.hcard:hover{box-shadow:0 4px 14px rgba(94,59,46,.1)}
+  .item:focus-visible,.hcard:focus-visible{outline:3px solid var(--caramel);outline-offset:2px}
+  .more{margin-left:auto;font-size:12px;font-weight:800;color:var(--brown-2);opacity:.7}
+  .meta{margin-top:auto;padding-top:10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+  .ml{
+    font-size:11px;font-weight:800;color:var(--brown-2);
+    background:var(--cream-2);padding:3px 8px;border-radius:8px;
+  }
+  .price{font-weight:800;color:var(--caramel);font-size:16px}
+  .item .ph{width:96px;height:96px;flex:none}
+
+  .empty{text-align:center;color:var(--muted);padding:40px 24px 20px;display:none}
+  .empty-ic{
+    width:64px;height:64px;border-radius:50%;margin:0 auto 14px;
+    background:var(--cream-2);color:var(--caramel);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .empty-ic svg{width:28px;height:28px}
+  .empty strong{display:block;font-family:"Fraunces",serif;font-size:19px;color:var(--brown)}
+  .empty span{display:block;margin-top:4px;font-size:14px}
+  .clear-search{
+    margin-top:16px;padding:10px 18px;border-radius:999px;cursor:pointer;
+    background:var(--paper);border:1px solid var(--line);
+    font:inherit;font-weight:800;font-size:13px;color:var(--brown);
+  }
+
+  /* ---------- Rodapé ---------- */
+  .info-card{
+    margin:26px 16px 0;padding:18px;border-radius:var(--radius);
+    background:var(--brown);color:#F6E7DA;
+  }
+  .info-card h2{font-family:"Fraunces",serif;font-size:20px;color:#fff;margin-bottom:12px}
+  .hours{width:100%;border-collapse:collapse;font-size:14px}
+  .hours td{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .hours td:last-child{text-align:right;font-weight:700}
+  .hours tr.today td{color:#fff}
+  .hours small{color:var(--caramel-soft);font-size:12px}
+  .hours tr.today td:first-child::after{content:" · hoje";color:var(--caramel-soft);font-weight:700;font-size:12px}
+  .addr{
+    margin-top:14px;font-size:14px;line-height:1.5;display:flex;align-items:center;gap:10px;
+    color:#fff;text-decoration:none;padding:10px 12px;margin-left:-12px;margin-right:-12px;border-radius:12px;
+  }
+  .addr:hover,.addr:active{background:rgba(255,255,255,.08)}
+  .addr svg{width:18px;height:18px;flex:none;color:var(--caramel-soft)}
+  .addr span{flex:1}
+  .addr .arrow{width:20px;height:20px;color:#fff;opacity:.8}
+  .review{
+    display:flex;align-items:center;justify-content:center;gap:8px;text-align:center;margin-top:14px;padding:11px;border-radius:12px;
+    background:rgba(255,255,255,.1);color:#fff;text-decoration:none;font-weight:700;font-size:14px;
+  }
+  .foot{text-align:center;color:var(--muted);font-size:12px;padding:20px 16px 0}
+
+  .preview-tag{
+    position:absolute;top:34px;right:12px;z-index:30;
+    background:var(--pink);color:#fff;font-size:11px;font-weight:800;
+    padding:5px 10px;border-radius:999px;letter-spacing:.4px;
+  }
+  /* ---------- Janela do produto ---------- */
+  .overlay{
+    position:fixed;inset:0;z-index:40;
+    background:rgba(61,40,32,.45);
+    opacity:0;pointer-events:none;transition:opacity .25s;
+  }
+  .overlay.show{opacity:1;pointer-events:auto}
+  .sheet{
+    position:fixed;left:50%;bottom:0;z-index:41;
+    width:100%;max-width:480px;max-height:92vh;overflow-y:auto;
+    background:var(--cream);border-radius:26px 26px 0 0;
+    transform:translate(-50%,100%);
+    transition:transform .32s cubic-bezier(.2,.8,.2,1);
+    box-shadow:0 -10px 40px rgba(61,40,32,.25);
+    overscroll-behavior:contain;
+  }
+  .sheet.show{transform:translate(-50%,0)}
+  .sheet.dragging{transition:none}
+  .handle{width:44px;height:5px;border-radius:5px;background:var(--caramel-soft);margin:10px auto 12px}
+  .sheet-close{
+    position:absolute;top:14px;right:14px;z-index:2;
+    width:36px;height:36px;border-radius:50%;border:0;cursor:pointer;
+    background:var(--paper);color:var(--brown);
+    box-shadow:0 2px 10px rgba(61,40,32,.15);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .sheet-close svg{width:18px;height:18px}
+  .sheet .ph.big{height:270px;margin:0 16px;font-size:13px}
+  .sheet .ph.big svg{width:34px;height:34px}
+  .sheet-body{padding:18px 20px 24px}
+  .sheet-cat{font-size:12px;font-weight:800;color:var(--pink);text-transform:uppercase;letter-spacing:.6px}
+  .sheet h2{font-family:"Fraunces",serif;font-size:27px;line-height:1.15;color:var(--brown);margin-top:4px}
+  .sheet .full-desc{margin-top:10px;font-size:15px;line-height:1.55;color:var(--muted);font-style:italic}
+  .sheet h4{margin:20px 0 8px;font-size:13px;font-weight:800;color:var(--brown-2);text-transform:uppercase;letter-spacing:.5px}
+  .sizes{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .size-row{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;font-weight:700}
+  .size-row + .size-row{border-top:1px solid var(--line)}
+  .size-row span:first-child{color:var(--text)}
+  .size-row small{color:var(--muted);font-weight:600;margin-left:6px}
+  .size-row .price{font-size:17px}
+  .tags{display:flex;gap:6px;flex-wrap:wrap}
+  .tag{font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--cream-2);color:var(--brown-2)}
+  .order{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    margin-top:22px;padding:15px;border-radius:16px;
+    background:var(--brown);color:#fff;text-decoration:none;font-weight:800;font-size:15px;
+    box-shadow:0 8px 22px rgba(94,59,46,.25);
+  }
+  .order svg{width:20px;height:20px}
+  .share{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    width:100%;margin-top:10px;padding:12px;border-radius:14px;cursor:pointer;
+    background:transparent;border:1px solid var(--line);
+    font:inherit;font-weight:700;font-size:14px;color:var(--brown-2);
+  }
+  body.lock{overflow:hidden}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="preview-tag">PRÉVIA</div>
+
+  <header class="hero">
+    <div class="awning"></div>
+    <img class="logo" src="logo.jpg" alt="Logo Café Sophie">
+    <h1>Café Sophie</h1>
+    <p class="tagline">Cappuccinos, cafés gelados &amp; doces · Seara/SC</p>
+    <div class="status" id="status"><span class="dot"></span><span id="statusText">Carregando…</span></div>
+
+    <div class="quick">
+      <a class="chip-btn wa" id="waTop" href="#" target="_blank" rel="noopener" title="WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.5-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>
+        WhatsApp
+      </a>
+      <a class="chip-btn" href="https://www.google.com/maps/place/Caf%C3%A9+Sophie/@-27.1660937,-52.3399644,15z/data=!4m10!1m2!2m1!1scafeshopie!3m6!1s0x94e4992a39aa8f47:0x70ec3ecc2465e7f6!8m2!3d-27.1660937!4d-52.32091!15sCgtjYWZlIHNob3BlZVoNIgtjYWZlIHNob3BlZZIBC2NvZmZlZV9zaG9wmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJ4U2NscFVRazlSVXpGRlRsUkNXbUZGY0ZaaWJVNTRZVWRqTTJKclJSQULgAQD6AQQIABA3!16s%2Fg%2F11m9ryxxzb" target="_blank" rel="noopener" title="Abrir no Maps">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        Como chegar
+      </a>
+      <button type="button" class="chip-btn" id="reserveTop" title="Reservar mesa">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        Reservar
+      </button>
+      <a class="chip-btn" href="#horario">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        Horários
+      </a>
+    </div>
+  </header>
+
+  <div class="sticky">
+    <label class="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="search" type="search" placeholder="Buscar no cardápio…">
+    </label>
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+
+  <section class="section" id="destaques">
+    <div class="section-head"><h2>Destaques</h2><span class="count">Novidades da casa</span></div>
+    <div class="highlights" id="highlights"></div>
+  </section>
+
+  <main id="menu"></main>
+  <div class="empty" id="empty">
+    <div class="empty-ic">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8.5 11h5"/></svg>
+    </div>
+    <strong>Nenhum item encontrado</strong>
+    <span>Confira se digitou certo ou procure por outro nome.</span>
+    <button type="button" class="clear-search" id="clearSearch">Limpar busca</button>
+  </div>
+
+  <section class="info-card" id="horario">
+    <h2>Horário &amp; endereço</h2>
+    <table class="hours" id="hours"></table>
+    <p class="specials" id="specials"></p>
+    <a class="addr" id="addrLink" target="_blank" rel="noopener" title="Abrir no Google Maps">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+      <span>Avenida Paludo, 1202 · São João<br>Seara/SC · 89770-000</span>
+      <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+    <button type="button" class="reserve" id="reserve">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+      Reservar mesa
+    </button>
+    <a class="review" href="https://g.page/cafesophie/review" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>
+      Gostou? Avalie a gente no Google
+    </a>
+  </section>
+
+  <section class="section" id="comodidades">
+    <h3>Bom saber</h3>
+    <div class="amenities">
+      <span class="amenity"><svg viewBox="0 0 24 24"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r=".8" fill="currentColor"/></svg>Wi-Fi grátis</span>
+      <span class="amenity"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M10 17V7h3.5a3 3 0 0 1 0 6H10"/></svg>Estacionamento grátis</span>
+      <span class="amenity"><svg viewBox="0 0 24 24"><circle cx="11" cy="4" r="1.5"/><path d="M11 7v6h5l2.5 5M11 10h4M8.5 10.5A5 5 0 1 0 14 18"/></svg>Acessível</span>
+      <span class="amenity"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M2 10h20M6 15h4"/></svg>Pix e cartão</span>
+      <span class="amenity"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 5a2 2 0 0 1 2-2M10 16.5a2.8 2.8 0 0 0 4 0"/><circle cx="9.3" cy="12.5" r=".6" fill="currentColor"/><circle cx="14.7" cy="12.5" r=".6" fill="currentColor"/></svg>Cadeirinha infantil</span>
+    </div>
+  </section>
+
+  <p class="foot">Preços e itens sujeitos a alteração · Consumo no local e para viagem</p>
+</div>
+
+
+<div class="overlay" id="overlay"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="handle" id="handle"></div>
+  <button class="sheet-close" id="sheetClose" aria-label="Fechar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <div id="sheetContent"></div>
+</div>
+
+<script>
+/* =====================================================
+   CARDÁPIO — edite só esta parte para trocar produtos.
+   price: null mostra "R$ --,--"
+   ===================================================== */
+const MENU = [
+  { id:"cappuccinos", name:"Cappuccinos especiais", items:[
+    { name:"Mokintella",                ml:"300 ml", price:null, featured:true },
+    { name:"Cappuccino Bueno Milka",    ml:"300 ml", price:null, featured:true, badge:"Mais pedido",
+      sizes:[ {label:"Pequeno", ml:"300 ml", price:null}, {label:"Grande", ml:"500 ml", price:null} ],
+      tags:["Contém lactose","Leva chantilly"] },
+    { name:"Cappuccino Chantilly",      ml:"300 ml", price:null },
+    { name:"Cappuccino Suíça",          ml:"300 ml", price:null },
+    { name:"Blu Moccaccino",            ml:"300 ml", price:null, featured:true, badge:"Novo" },
+    { name:"Cappuccino Avelã Pistache", ml:"300 ml", price:null, featured:true },
+  ]},
+  { id:"classicos", name:"Cafés clássicos", items:[
+    { name:"Espresso com leite",    ml:"200 ml", price:null },
+    { name:"Café coado",            ml:"200 ml", price:null },
+    { name:"Café Prensa Francesa",  ml:"250 ml", price:null },
+  ]},
+  { id:"gelados", name:"Cafés gelados", items:[
+    { name:"Frappuccino Itália",    ml:"400 ml", price:null, featured:true, badge:"Novo" },
+    { name:"Café gelado (nome)",    ml:"400 ml", price:null },
+    { name:"Café gelado (nome)",    ml:"400 ml", price:null },
+  ]},
+  { id:"donuts", name:"Donuts", items:[
+    { name:"Donut (sabor)", ml:"unidade", price:null },
+    { name:"Donut (sabor)", ml:"unidade", price:null },
+    { name:"Donut (sabor)", ml:"unidade", price:null },
+  ]},
+  { id:"salgados", name:"Salgados", items:[
+    { name:"Salgado (nome)", ml:"unidade", price:null },
+    { name:"Salgado (nome)", ml:"unidade", price:null },
+  ]},
+  { id:"doces", name:"Doces", items:[
+    { name:"Doce (nome)", ml:"fatia", price:null },
+    { name:"Doce (nome)", ml:"fatia", price:null },
+  ]},
+];
+
+/* Horários: [diaDaSemana 0=Dom … 6=Sáb] → [abre, fecha] em "HH:MM" */
+const HOURS = {
+  0:["17:30","21:00"], 1:["17:30","21:00"], 2:["17:30","21:00"], 3:["17:30","21:00"],
+  4:["17:30","21:00"], 5:["17:30","21:00"], 6:["08:30","11:30"],
+};
+const DAYS = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
+
+/* Dias especiais: feriados, folgas ou horário diferente. Têm prioridade sobre HOURS.
+   "AAAA-MM-DD": { hours: null (fechado) ou ["HH:MM","HH:MM"], note: "motivo" }
+   Exemplos — apague as // do começo da linha para ativar: */
+const SPECIAL_DAYS = {
+  // "2026-12-24": { hours: ["17:30","19:00"], note: "Véspera de Natal" },
+  // "2026-12-25": { hours: null, note: "Natal" },
+};
+
+/* Número do WhatsApp com DDI+DDD, só dígitos (ex.: "5549999999999"). Vazio = WhatsApp pede o contato. */
+const WHATSAPP = "5549999277583";  // (49) 9 9927-7583 — número pessoal da dona; confirmar se ela aprova
+
+/* Ícones de traço fino usados dentro do JS */
+const ICON = {
+  cal:   `<svg class="ico" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>`,
+  link:  `<svg class="ico" viewBox="0 0 24 24"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>`,
+  check: `<svg class="ico" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>`,
+};
+
+/* Link exato do Google Maps (usado em "Como chegar" e no endereço) */
+document.getElementById("addrLink").href = document.querySelector('.quick a[title="Abrir no Maps"]').href;
+
+/* Cada produto ganha um "slug" para ter link próprio: cardapio.html#cappuccino-bueno-milka */
+const BY_SLUG = {};
+MENU.forEach(c => c.items.forEach(i => {
+  let base = i.name.normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+  let s = base, n = 2;
+  while (BY_SLUG[s]) s = `${base}-${n++}`;
+  i.slug = s; i.cat = c.name;
+  BY_SLUG[s] = i;
+}));
+
+/* ---------- render ---------- */
+const PH = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5l1.5-2h5L16 5"/></svg>Foto aqui`;
+const fmt = p => p == null ? "R$ --,--" : p.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const badge = b => b ? `<span class="badge">${b}</span>` : "";
+/* busca sem acento: "suica" encontra "Suíça", "cafe" encontra "Café" */
+const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+document.getElementById("tabs").innerHTML =
+  `<button class="tab active" data-target="destaques">Destaques</button>` +
+  MENU.map(c => `<button class="tab" data-target="${c.id}">${c.name}</button>`).join("");
+
+document.getElementById("highlights").innerHTML = MENU.flatMap(c => c.items.filter(i => i.featured)).map(i => `
+  <article class="hcard" data-slug="${i.slug}" tabindex="0" role="button" aria-label="Ver ${i.name}">
+    <div class="ph">${PH}</div>
+    <div class="body"><h3>${i.name}</h3><div class="price">${fmt(i.price)}</div></div>
+  </article>`).join("");
+
+document.getElementById("menu").innerHTML = MENU.map(c => `
+  <section class="section cat" id="${c.id}">
+    <div class="section-head"><h2>${c.name}</h2><span class="count">${c.items.length} ${c.items.length === 1 ? "item" : "itens"}</span></div>
+    <div class="list">
+      ${c.items.map(i => `
+        <article class="item" data-name="${norm(i.name + " " + c.name)}" data-slug="${i.slug}" tabindex="0" role="button" aria-label="Ver ${i.name}">
+          <div class="info">
+            <h3>${i.name}${badge(i.badge)}</h3>
+            <p class="desc">Descrição do produto aqui</p>
+            <div class="meta"><span class="ml">${i.ml}</span><span class="price">${fmt(i.price)}</span><span class="more">ver ›</span></div>
+          </div>
+          <div class="ph">${PH}</div>
+        </article>`).join("")}
+    </div>
+  </section>`).join("");
+
+/* ---------- tabs: rolar até a categoria + destacar a atual ---------- */
+const tabs = [...document.querySelectorAll(".tab")];
+tabs.forEach(t => t.addEventListener("click", () => {
+  const s = document.getElementById("search");
+  if (s.value) { s.value = ""; s.dispatchEvent(new Event("input")); }   // aba durante a busca: volta o cardápio todo
+  const el = document.getElementById(t.dataset.target);
+  const off = document.querySelector(".sticky").offsetHeight;
+  window.scrollTo({ top: el.getBoundingClientRect().top + scrollY - off - 6, behavior:"smooth" });
+}));
+const sections = ["destaques", ...MENU.map(c => c.id)].map(id => document.getElementById(id));
+addEventListener("scroll", () => {
+  const off = document.querySelector(".sticky").offsetHeight + 20;
+  let cur = sections[0].id;
+  sections.forEach(s => { if (s.offsetParent && s.getBoundingClientRect().top - off <= 0) cur = s.id; });
+  tabs.forEach(t => {
+    const on = t.dataset.target === cur;
+    if (on && !t.classList.contains("active")) t.scrollIntoView({inline:"center", block:"nearest", behavior:"smooth"});
+    t.classList.toggle("active", on);
+  });
+}, { passive:true });
+
+/* ---------- busca ---------- */
+document.getElementById("search").addEventListener("input", e => {
+  const q = norm(e.target.value.trim());
+  let any = false;
+  document.querySelectorAll(".cat").forEach(sec => {
+    let vis = 0;
+    sec.querySelectorAll(".item").forEach(it => {
+      const show = !q || it.dataset.name.includes(q);
+      it.style.display = show ? "" : "none";
+      if (show) vis++;
+    });
+    sec.style.display = vis ? "" : "none";
+    sec.querySelector(".count").textContent = `${vis} ${vis === 1 ? "item" : "itens"}`;
+    if (vis) any = true;
+  });
+  document.getElementById("destaques").style.display = q ? "none" : "";
+  document.getElementById("horario").style.display = q ? "none" : "";
+  document.getElementById("comodidades").style.display = q ? "none" : "";
+  document.querySelector(".foot").style.display = q ? "none" : "";
+  document.getElementById("empty").style.display = any ? "none" : "block";
+});
+/* "Enter"/"Buscar" no teclado do celular: fecha o teclado para ver os resultados */
+document.getElementById("search").addEventListener("keydown", e => { if (e.key === "Enter") e.target.blur(); });
+document.getElementById("clearSearch").addEventListener("click", () => {
+  const s = document.getElementById("search");
+  s.value = ""; s.dispatchEvent(new Event("input")); s.focus();
+});
+
+/* ---------- aberto agora / horários (atualiza sozinho) ---------- */
+const toMin = s => { const [h,m] = s.split(":").map(Number); return h*60+m; };
+const pad = n => String(n).padStart(2,"0");
+const isoDate = dt => `${dt.getFullYear()}-${pad(dt.getMonth()+1)}-${pad(dt.getDate())}`;
+const brDate = dt => `${pad(dt.getDate())}/${pad(dt.getMonth()+1)}`;
+/* Para testar outro horário: cardapio.html?agora=2026-11-18T20:45 */
+const FAKE_NOW = new URLSearchParams(location.search).get("agora");
+const getNow = () => FAKE_NOW ? new Date(FAKE_NOW) : new Date();
+const hoursOn = dt => { const sp = SPECIAL_DAYS[isoDate(dt)]; return sp ? sp.hours : HOURS[dt.getDay()]; };
+const addDays = (dt, k) => { const n = new Date(dt); n.setDate(n.getDate() + k); return n; };
+
+function updateStatus() {
+  const now = getNow(), mins = now.getHours()*60 + now.getMinutes();
+  const st = document.getElementById("status"), stt = document.getElementById("statusText");
+  const today = hoursOn(now), sp = SPECIAL_DAYS[isoDate(now)];
+  st.classList.remove("open","closed","soon");
+
+  if (today && mins >= toMin(today[0]) && mins < toMin(today[1])) {
+    if (toMin(today[1]) - mins <= 30) {
+      st.classList.add("soon");
+      stt.innerHTML = `Fecha em breve <small>· às ${today[1]}</small>`;
+    } else {
+      st.classList.add("open");
+      stt.innerHTML = `Aberto agora <small>· até ${today[1]}</small>`;
+    }
+    return;
+  }
+  st.classList.add("closed");
+  let label = "";
+  if (today && mins < toMin(today[0])) label = `abre hoje às ${today[0]}`;
+  else for (let k = 1; k <= 14; k++) {
+    const nd = addDays(now, k), h = hoursOn(nd);
+    if (h) { label = `abre ${k === 1 ? "amanhã" : DAYS[nd.getDay()].toLowerCase()} às ${h[0]}`; break; }
+  }
+  const why = sp && !sp.hours ? ` hoje (${sp.note})` : "";
+  stt.innerHTML = `Fechado${why}${label ? ` <small>· ${label}</small>` : ""}`;
+}
+
+function renderHours() {
+  const now = getNow(), d = now.getDay();
+  // cada linha mostra a data real desta semana: se cair num feriado, já aparece o horário especial
+  document.getElementById("hours").innerHTML = [1,2,3,4,5,6,0].map(i => {
+    const dt = addDays(now, (i - d + 7) % 7), h = hoursOn(dt), sp = SPECIAL_DAYS[isoDate(dt)];
+    const val = h ? `${h[0]} – ${h[1]}` : "Fechado";
+    return `<tr class="${i===d?"today":""}"><td>${DAYS[i]}${sp ? ` <small>(${sp.note})</small>` : ""}</td><td>${val}</td></tr>`;
+  }).join("");
+  // dias especiais dos próximos 14 dias
+  const list = [];
+  for (let k = 0; k <= 14; k++) {
+    const dt = addDays(now, k), sp = SPECIAL_DAYS[isoDate(dt)];
+    if (sp) list.push(`${ICON.cal} <b>${brDate(dt)}</b> · ${sp.note}: ${sp.hours ? `${sp.hours[0]} – ${sp.hours[1]}` : "fechado"}`);
+  }
+  document.getElementById("specials").innerHTML = list.join("<br>");
+}
+
+updateStatus(); renderHours();
+setInterval(() => { updateStatus(); renderHours(); }, 30000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) { updateStatus(); renderHours(); } });
+
+/* ---------- links de WhatsApp ---------- */
+document.getElementById("waTop").href = `https://wa.me/${WHATSAPP}`;
+
+/* ---------- janela do produto ---------- */
+const sheet = document.getElementById("sheet"), overlay = document.getElementById("overlay");
+const WA_ICON = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.5-4-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 1.9 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/></svg>`;
+let pushed = false, lastFocus = null;
+
+function render(i) {
+  const sizes = i.sizes || [{ label: "Tamanho único", ml: i.ml, price: i.price }];
+  const msg = `Olá! Gostaria de encomendar para retirar: ${i.name}${sizes.length === 1 ? ` (${sizes[0].ml})` : ""}`;
+  const wa = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+  document.getElementById("sheetContent").innerHTML = `
+    <div class="ph big">${PH}</div>
+    <div class="sheet-body">
+      <div class="sheet-cat">${i.cat}</div>
+      <h2 id="sheetTitle">${i.name}${badge(i.badge)}</h2>
+      <p class="full-desc">Descrição completa do produto aqui: ingredientes, como é preparado, o que deixa ele especial…</p>
+      <h4>${sizes.length > 1 ? "Tamanhos" : "Tamanho"}</h4>
+      <div class="sizes">
+        ${sizes.map(s => `<div class="size-row"><span>${s.label}<small>${s.ml}</small></span><span class="price">${fmt(s.price)}</span></div>`).join("")}
+      </div>
+      ${i.tags ? `<h4>Bom saber</h4><div class="tags">${i.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>` : ""}
+      <a class="order" href="${wa}" target="_blank" rel="noopener">${WA_ICON} Encomendar este item</a>
+      <button class="share" id="share">${ICON.link}<span>Copiar link deste produto</span></button>
+    </div>`;
+  document.getElementById("share").onclick = async e => {
+    const btn = e.currentTarget, url = location.href.split("#")[0] + "#" + i.slug;
+    try { await navigator.clipboard.writeText(url); btn.innerHTML = `${ICON.check}<span>Link copiado!</span>`; }
+    catch { btn.textContent = url; }
+  };
+}
+
+/* ---------- formulário de reserva ---------- */
+const MAX_PEOPLE = 20;
+const MAX_DAYS_AHEAD = 60;   // até quantos dias à frente aceita reserva
+const fromIso = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y, m-1, d); };
+const fmtMin = m => `${pad(Math.floor(m/60))}:${pad(m%60)}`;
+
+function slotsFor(dt) {
+  const h = hoursOn(dt); if (!h) return [];
+  const now = getNow(), isToday = isoDate(dt) === isoDate(now);
+  const nowMin = now.getHours()*60 + now.getMinutes();
+  const out = [];
+  for (let m = toMin(h[0]); m <= toMin(h[1]) - 30; m += 30)
+    if (!isToday || m > nowMin + 15) out.push(fmtMin(m));
+  return out;
+}
+
+function renderReserve() {
+  const now = getNow();
+  const days = [];
+  for (let k = 0; days.length < 6 && k < 21; k++) {
+    const dt = addDays(now, k);
+    if (slotsFor(dt).length) days.push({ dt, k });
+  }
+  const label = ({dt, k}) => k === 0 ? "Hoje" : k === 1 ? "Amanhã" : DAYS[dt.getDay()].slice(0,3);
+  const st = { date: days[0] ? isoDate(days[0].dt) : null, people: 1 };
+
+  document.getElementById("sheetContent").innerHTML = `
+    <div class="sheet-body" style="padding-top:4px">
+      <div class="sheet-cat">Reserva</div>
+      <h2 id="sheetTitle">Reservar mesa</h2>
+      <p class="hint">Preencha e envie pelo WhatsApp. A gente confirma por lá.</p>
+
+      <h4>Nome</h4>
+      <input type="text" id="rName" class="field-input" style="margin-top:0" placeholder="Nome de quem vai reservar" autocomplete="name" maxlength="60">
+
+      <h4>Dia</h4>
+      <div class="opts" id="rDays">
+        ${days.map((d, n) => `<button type="button" class="opt${n===0?" active":""}" data-date="${isoDate(d.dt)}"><b>${label(d)}</b><small>${brDate(d.dt)}</small></button>`).join("")}
+      </div>
+      <button type="button" class="other-date" id="rOtherBtn">${ICON.cal}Escolher outra data</button>
+      <input type="date" id="rOther" class="field-input" min="${isoDate(now)}" max="${isoDate(addDays(now, MAX_DAYS_AHEAD))}" hidden>
+      <p class="hint" id="rDayMsg"></p>
+
+      <h4>Pessoas</h4>
+      <div class="stepper">
+        <button type="button" id="rMinus" aria-label="Menos uma pessoa">−</button>
+        <output id="rPeople">1 pessoa</output>
+        <button type="button" id="rPlus" aria-label="Mais uma pessoa">+</button>
+      </div>
+      <p class="hint" id="rPeopleMsg"></p>
+
+      <h4>Horário</h4>
+      <select id="rTime" class="field-input"></select>
+      <input type="time" id="rCustom" class="field-input" step="300" hidden>
+      <p class="hint" id="rCustomMsg"></p>
+
+      <h4>Observação <small>(opcional)</small></h4>
+      <textarea id="rNote" class="field-input" rows="2" placeholder="Ex.: aniversário, precisa de cadeirinha…"></textarea>
+
+      <p class="hint warn" id="rError"></p>
+      <button type="button" class="order" id="rSend">${WA_ICON} Enviar pedido de reserva</button>
+      <p class="hint center">A reserva só fica garantida depois da nossa confirmação.</p>
+    </div>`;
+
+  const $ = id => document.getElementById(id);
+  const fillTimes = () => {
+    $("rError").textContent = "";
+    const dt = st.date ? fromIso(st.date) : null;
+    const slots = dt ? slotsFor(dt) : [];
+    const sp = dt && SPECIAL_DAYS[st.date];
+    $("rDayMsg").className = "hint";
+    if (!dt) $("rDayMsg").textContent = "";
+    else if (st.date < isoDate(getNow()) || st.date > isoDate(addDays(getNow(), MAX_DAYS_AHEAD))) {
+      $("rDayMsg").className = "hint warn";
+      $("rDayMsg").textContent = `Escolha uma data entre hoje e ${brDate(addDays(getNow(), MAX_DAYS_AHEAD))}.`;
+      $("rTime").innerHTML = ""; $("rTime").disabled = true; $("rSend").disabled = true;
+      $("rCustom").hidden = true; $("rCustomMsg").textContent = "";
+      return;
+    }
+    else if (!hoursOn(dt)) { $("rDayMsg").className = "hint warn"; $("rDayMsg").textContent = `Estamos fechados neste dia${sp ? ` (${sp.note})` : ""}. Escolha outra data.`; }
+    else if (!slots.length) { $("rDayMsg").className = "hint warn"; $("rDayMsg").textContent = "Não há mais horários disponíveis neste dia."; }
+    else $("rDayMsg").textContent = `${DAYS[dt.getDay()]}: aberto das ${hoursOn(dt)[0]} às ${hoursOn(dt)[1]}`;
+    $("rTime").innerHTML = `<option value="" disabled selected>Escolha um horário</option>` +
+      slots.map(s => `<option value="${s}">${s}</option>`).join("") +
+      (slots.length ? `<option value="outro">Outro horário</option><option value="nao-sei">Ainda não sei o horário</option>` : "");
+    $("rTime").disabled = !slots.length;
+    $("rSend").disabled = !slots.length;
+    $("rCustom").hidden = true; $("rCustom").value = ""; $("rCustomMsg").textContent = "";
+  };
+  const setPeople = n => {
+    st.people = Math.max(1, Math.min(MAX_PEOPLE, n));
+    $("rPeople").textContent = `${st.people} ${st.people === 1 ? "pessoa" : "pessoas"}`;
+    $("rMinus").disabled = st.people <= 1;
+    $("rPlus").disabled = st.people >= MAX_PEOPLE;
+    $("rPeopleMsg").textContent = st.people >= MAX_PEOPLE ? `Mais de ${MAX_PEOPLE} pessoas? Conte na observação.` : "";
+  };
+
+  $("rDays").addEventListener("click", e => {
+    const b = e.target.closest(".opt"); if (!b) return;
+    $("rDays").querySelectorAll(".opt").forEach(o => o.classList.toggle("active", o === b));
+    $("rOtherBtn").classList.remove("active");
+    $("rOther").hidden = true;
+    st.date = b.dataset.date;
+    fillTimes();
+  });
+  $("rOtherBtn").addEventListener("click", () => {
+    $("rDays").querySelectorAll(".opt").forEach(o => o.classList.remove("active"));
+    $("rOtherBtn").classList.add("active");
+    $("rOther").hidden = false; $("rOther").focus();
+    try { $("rOther").showPicker(); } catch {}
+    st.date = $("rOther").value || null;
+    fillTimes();
+  });
+  $("rOther").addEventListener("change", e => { st.date = e.target.value || null; fillTimes(); });
+  $("rMinus").onclick = () => setPeople(st.people - 1);
+  $("rPlus").onclick = () => setPeople(st.people + 1);
+  /* "Outro horário": a pessoa digita, desde que esteja dentro do horário de funcionamento */
+  const customRange = () => {
+    const dt = fromIso(st.date), h = hoursOn(dt), now = getNow();
+    let min = toMin(h[0]);
+    if (isoDate(dt) === isoDate(now)) min = Math.max(min, Math.ceil((now.getHours()*60 + now.getMinutes() + 15) / 5) * 5);
+    return { min, max: toMin(h[1]) - 30 };   // mesma regra da lista: última reserva 30 min antes de fechar
+  };
+  $("rTime").addEventListener("change", () => {
+    $("rError").textContent = "";
+    const other = $("rTime").value === "outro";
+    $("rCustom").hidden = !other;
+    if (other) {
+      const { min, max } = customRange();
+      $("rCustom").min = fmtMin(min); $("rCustom").max = fmtMin(max);
+      $("rCustomMsg").className = "hint";
+      $("rCustomMsg").textContent = `Digite um horário entre ${fmtMin(min)} e ${fmtMin(max)}.`;
+      $("rCustom").focus();
+    } else $("rCustomMsg").textContent = "";
+  });
+  $("rCustom").addEventListener("input", () => $("rError").textContent = "");
+  $("rName").addEventListener("input", () => $("rError").textContent = "");
+
+  $("rSend").onclick = () => {
+    const name = $("rName").value.trim();
+    if (name.length < 2) { $("rError").textContent = "Informe o nome de quem vai reservar."; $("rName").focus(); return; }
+    if (!st.date) { $("rError").textContent = "Escolha o dia da reserva."; return; }
+    let t = $("rTime").value;
+    if (!t) { $("rError").textContent = "Escolha um horário ou marque “Ainda não sei o horário”."; return; }
+    if (t === "outro") {
+      const v = $("rCustom").value, { min, max } = customRange();
+      if (!v) { $("rError").textContent = "Digite o horário desejado."; $("rCustom").focus(); return; }
+      if (toMin(v) < min || toMin(v) > max) { $("rError").textContent = `Esse horário está fora do funcionamento. Escolha entre ${fmtMin(min)} e ${fmtMin(max)}.`; return; }
+      t = v;
+    }
+    const dt = fromIso(st.date);
+    const note = $("rNote").value.trim();
+    const msg = [
+      "Olá! Gostaria de reservar uma mesa 😊",
+      "",
+      `👤 Nome: ${name}`,
+      `📅 Dia: ${DAYS[dt.getDay()].toLowerCase()}, ${brDate(dt)}`,
+      `👥 Pessoas: ${st.people}`,
+      `🕐 Horário: ${t === "nao-sei" ? "ainda não sei" : t}`,
+      note ? `📝 Obs.: ${note}` : null,
+    ].filter(l => l !== null).join("\n");
+    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+  };
+
+  setPeople(st.people);
+  fillTimes();
+}
+
+const isRoute = s => s === "reservar" || !!BY_SLUG[s];
+
+function show(slug) {
+  if (slug === "reservar") renderReserve();
+  else { const i = BY_SLUG[slug]; if (!i) return; render(i); }
+  sheet.scrollTop = 0;
+  sheet.classList.add("show"); overlay.classList.add("show");
+  document.body.classList.add("lock");
+  document.getElementById("sheetClose").focus({ preventScroll: true });
+}
+function hide() {
+  sheet.classList.remove("show"); overlay.classList.remove("show");
+  sheet.style.transform = "";
+  document.body.classList.remove("lock");
+  if (lastFocus) lastFocus.focus({ preventScroll: true });
+}
+function openProduct(slug) {
+  history.pushState(null, "", "#" + slug); pushed = true;
+  show(slug);
+}
+function closeProduct() {
+  if (!sheet.classList.contains("show")) return;
+  if (pushed) { pushed = false; history.back(); }       // botão "voltar" do celular também fecha
+  else { history.replaceState(null, "", location.pathname + location.search); hide(); }
+}
+
+document.addEventListener("click", e => {
+  const card = e.target.closest("[data-slug]");
+  if (card) { lastFocus = card; openProduct(card.dataset.slug); }
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeProduct();
+  if ((e.key === "Enter" || e.key === " ") && e.target.matches("[data-slug]")) { e.preventDefault(); lastFocus = e.target; openProduct(e.target.dataset.slug); }
+});
+overlay.addEventListener("click", closeProduct);
+document.getElementById("sheetClose").addEventListener("click", closeProduct);
+addEventListener("popstate", () => {
+  const s = location.hash.slice(1);
+  if (isRoute(s)) show(s); else hide();
+});
+["reserve", "reserveTop"].forEach(id =>
+  document.getElementById(id).addEventListener("click", e => { lastFocus = e.currentTarget; openProduct("reservar"); }));
+
+/* arrastar para baixo para fechar */
+let startY = null, dy = 0;
+sheet.addEventListener("touchstart", e => {
+  if (sheet.scrollTop > 0) return;
+  startY = e.touches[0].clientY; dy = 0; sheet.classList.add("dragging");
+}, { passive: true });
+sheet.addEventListener("touchmove", e => {
+  if (startY === null) return;
+  dy = Math.max(0, e.touches[0].clientY - startY);
+  sheet.style.transform = `translate(-50%, ${dy}px)`;
+}, { passive: true });
+sheet.addEventListener("touchend", () => {
+  if (startY === null) return;
+  sheet.classList.remove("dragging"); startY = null;
+  if (dy > 110) closeProduct(); else sheet.style.transform = "";
+});
+
+/* abriu a página por um link de produto? já mostra ele */
+if (isRoute(location.hash.slice(1))) show(location.hash.slice(1));
+</script>
+</body>
+</html>
