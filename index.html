@@ -6,15 +6,15 @@
 <title>Café Sophie · Cardápio</title>
 <meta name="description" content="Cardápio, preços, horário e reservas do Café Sophie em Seara/SC. Cappuccinos especiais, cafés gelados, donuts, salgados e doces.">
 <meta name="theme-color" content="#5E3B2E">
-<!-- Prévia do link (WhatsApp, Instagram, Facebook).
-     Ao publicar, troque og:url e og:image pelo endereço completo (ex.: https://seudominio.com.br/logo.jpg) -->
+<!-- Prévia do link (WhatsApp, Instagram, Facebook). Se mudar o endereço do site, troque og:url e og:image -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Café Sophie">
 <meta property="og:title" content="Café Sophie · Cardápio">
 <meta property="og:description" content="Veja o cardápio, os preços e o horário de hoje. Reserve sua mesa pelo WhatsApp.">
-<!-- <meta property="og:url" content="https://ENDERECO-FINAL"> -->
-<meta property="og:image" content="logo.jpg">
+<meta property="og:url" content="https://cardapiocafesophie.vercel.app/">
+<meta property="og:image" content="https://cardapiocafesophie.vercel.app/logo.jpg">
+<meta property="og:image:alt" content="Logo do Café Sophie">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -869,13 +869,13 @@ function renderReserve() {
     const dt = fromIso(st.date);
     const note = $("rNote").value.trim();
     const msg = [
-      "Olá! Gostaria de reservar uma mesa 😊",
+      "Olá! Gostaria de reservar uma mesa.",
       "",
-      `👤 Nome: ${name}`,
-      `📅 Dia: ${DAYS[dt.getDay()].toLowerCase()}, ${brDate(dt)}`,
-      `👥 Pessoas: ${st.people}`,
-      `🕐 Horário: ${t === "nao-sei" ? "ainda não sei" : t}`,
-      note ? `📝 Obs.: ${note}` : null,
+      `*Nome:* ${name}`,
+      `*Dia:* ${DAYS[dt.getDay()].toLowerCase()}, ${brDate(dt)}`,
+      `*Horário:* ${t === "nao-sei" ? "ainda não sei" : t}`,
+      `*Pessoas:* ${st.people}`,
+      note ? `*Observação:* ${note}` : null,
     ].filter(l => l !== null).join("\n");
     window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
   };
